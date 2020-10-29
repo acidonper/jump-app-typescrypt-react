@@ -3,19 +3,32 @@ import logo from './logo.svg';
 import './App.css';
 import { sentJump } from './infrastructure/postJump';
 import { Jump } from './domain/Jump';
-
+import { Response as ResponseBack } from './domain/Response';
 
 function App() {
 
   let form: Jump = {} as Jump;
   form.jumps = []
+
+  let res: ResponseBack = {} as ResponseBack;
   
   const [inputform, setInputForm] = useState(form);
+  const [jumps, setJumps] = useState([""]);
+  const [resBack, setResBack] = useState(res);
+  const [response, setResponse] = useState(false);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const jump = await sentJump(inputform);
+    const jump: ResponseBack = await sentJump(inputform);
     console.log(jump)
+    setResBack({...jump})
+    setResponse(true)
+  };
+
+  const addInput = () => {
+    jumps.push("");
+    setJumps([...jumps]);
+    setInputForm({ ...inputform, jumps })
   };
 
   return (
@@ -57,20 +70,32 @@ function App() {
                 value={inputform.jump_path}
             />
             <p>Jumps: </p>
-            <input type="text"
-                id="jump"
-                name="jump"
+
+            {jumps.map((n, i) => (
+              <input
+                key={i}
+                value={n}
                 required={true}
-                placeholder="http://localhost"
-                onChange={(event) =>
-                  setInputForm({ ...inputform, jumps: [event.target.value] })
-                }
-                value={inputform.jumps[0]}
-            />
+                onChange={e => {
+                  jumps[i] = e.target.value;
+                  setJumps([...jumps]);
+                  setInputForm({ ...inputform, jumps })
+                }}
+              />
+            ))}
+            <button type="button" onClick={addInput}>Add empty input</button>
             <div>
               <button type="submit">Jump</button>
             </div>
         </form>
+        {response ? (
+          <div className="App-response">
+              
+                <p>Code: {resBack.code}</p>
+                <p>Message: {resBack.message}</p>
+              
+          </div>
+        ) : null}
       </header>
     </div>
   );
