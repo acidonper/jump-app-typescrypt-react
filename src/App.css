@@ -13,15 +13,53 @@
   }
 }
 
+form {
+  display: flex;
+}
+
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  min-height: 20vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(8px + 2vmin);
   color: white;
+}
+
+.App-body {
+  background-color: #282c34;
+  min-height: 80vh;
+  display: flex;
+  font-size: calc(22px);
+  justify-content: center;
+  align-items: flex-start;
+  color: #ffffff;
+}
+
+.App-body-settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.App-body-calls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.App-body-result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
 .App-link {
@@ -41,6 +79,24 @@
   border-style: solid;
   padding: 5px;
   margin: 5px;
+}
+
+.add-button{
+  background-color: white;
+  color: #282c34;
+  border: 3px solid #cfd6e2;
+  font-size: 14px;
+  padding: 4px 6px;
+  margin: 10px;
+}
+
+.jump-button{
+  background-color: white;
+  color: #282c34;
+  border: 3px solid #cfd6e2;
+  font-size: 20px;
+  padding: 4px 6px;
+  margin: 10px;
 }
 
 @keyframes App-logo-spin {

@@ -18,10 +18,12 @@ function App() {
   const [response, setResponse] = useState(false);
   const [calls, setCalls] = useState(1);
   const [callsInterval, setCallsInterval] = useState(1);
+  const [backend, setBackend] = useState(1);
+  const [url, setUrl] = useState("http://golang-demo-git-myapp.apps.68.sandbox1017.opentlc.com/jump");
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const jump: ResponseBack = await sentJump(inputForm, calls, callsInterval);
+    const jump: ResponseBack = await sentJump(url, inputForm, calls, callsInterval);
     console.log(jump)
     setResBack({...jump})
     setResponse(true)
@@ -37,7 +39,21 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
+      </header>
+      <body className="App-body">
         <form onSubmit={handleSubmit}>
+          <div className="App-body-settings">
+            <p>Backend URL: </p>
+            <input type="text"
+                id="url"
+                name="url"
+                required={true}
+                placeholder="http://back-project-a.apps.68.sandbox1017.opentlc.com/jump"
+                onChange={(event) =>
+                  setUrl(event.target.value)
+                }
+                value={url}
+            />
             <p>Message: </p>
             <input type="text"
                 id="message"
@@ -85,11 +101,12 @@ function App() {
                 }}
               />
             ))}
-            <button type="button" onClick={addInput}>Add empty input</button>
-            <div>
-              <button type="submit">Jump</button>
-            </div>
-            
+            <button className="add-button" type="button" onClick={addInput}>Add empty input</button>
+
+          </div>  
+
+          <div className="App-body-calls">
+          
             <p>Calls: </p>
             <input type="number"
                 id="calls"
@@ -114,17 +131,28 @@ function App() {
                 value={callsInterval}
             />
 
-        </form>
-        {response ? (
-          <div className="App-response">
-              
-                <p>Code: {resBack.code}</p>
-                <p>Message: {resBack.message}</p>
-              
+            <div>
+              <button className="jump-button" type="submit">Jump</button>
+            </div>
+          
           </div>
-        ) : null}
         
-      </header>
+        </form>
+        
+        <div className="App-body-result">
+
+            {response ? (
+            <div className="App-response">
+                
+                  <p>Code: {resBack.code}</p>
+                  <p>Message: {resBack.message}</p>
+                
+            </div>
+            ) : null}
+        
+        </div>  
+      
+      </body>
     </div>
   );
 }
