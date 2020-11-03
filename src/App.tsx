@@ -12,14 +12,16 @@ function App() {
 
   let res: ResponseBack = {} as ResponseBack;
   
-  const [inputform, setInputForm] = useState(form);
+  const [inputForm, setInputForm] = useState(form);
   const [jumps, setJumps] = useState([""]);
   const [resBack, setResBack] = useState(res);
   const [response, setResponse] = useState(false);
+  const [calls, setCalls] = useState(1);
+  const [callsInterval, setCallsInterval] = useState(1);
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
-    const jump: ResponseBack = await sentJump(inputform);
+    const jump: ResponseBack = await sentJump(inputForm, calls, callsInterval);
     console.log(jump)
     setResBack({...jump})
     setResponse(true)
@@ -28,7 +30,7 @@ function App() {
   const addInput = () => {
     jumps.push("");
     setJumps([...jumps]);
-    setInputForm({ ...inputform, jumps })
+    setInputForm({ ...inputForm, jumps })
   };
 
   return (
@@ -43,9 +45,9 @@ function App() {
                 required={true}
                 placeholder="My First Jump Message"
                 onChange={(event) =>
-                  setInputForm({ ...inputform, message: event.target.value })
+                  setInputForm({ ...inputForm, message: event.target.value })
                 }
-                value={inputform.message}
+                value={inputForm.message}
             />
             <p>Last Path: </p>
             <input type="text"
@@ -54,9 +56,9 @@ function App() {
                 required={true}
                 placeholder="/jump"
                 onChange={(event) =>
-                  setInputForm({ ...inputform, last_path: event.target.value })
+                  setInputForm({ ...inputForm, last_path: event.target.value })
                 }
-                value={inputform.last_path}
+                value={inputForm.last_path}
             />
             <p>Jump Path: </p>
             <input type="text"
@@ -65,9 +67,9 @@ function App() {
                 required={true}
                 placeholder="/jump"
                 onChange={(event) =>
-                  setInputForm({ ...inputform, jump_path: event.target.value })
+                  setInputForm({ ...inputForm, jump_path: event.target.value })
                 }
-                value={inputform.jump_path}
+                value={inputForm.jump_path}
             />
             <p>Jumps: </p>
 
@@ -79,7 +81,7 @@ function App() {
                 onChange={e => {
                   jumps[i] = e.target.value;
                   setJumps([...jumps]);
-                  setInputForm({ ...inputform, jumps })
+                  setInputForm({ ...inputForm, jumps })
                 }}
               />
             ))}
@@ -87,6 +89,31 @@ function App() {
             <div>
               <button type="submit">Jump</button>
             </div>
+            
+            <p>Calls: </p>
+            <input type="number"
+                id="calls"
+                name="calls"
+                required={true}
+                placeholder="80"
+                onChange={(event) =>
+                  setCalls(parseInt(event.target.value))
+                }
+                value={calls}
+            />
+
+            <p>Calls Interval (Seconds): </p>
+            <input type="number"
+                id="callsinterval"
+                name="callsinterval"
+                required={true}
+                placeholder="5"
+                onChange={(event) =>
+                  setCallsInterval(parseInt(event.target.value))
+                }
+                value={callsInterval}
+            />
+
         </form>
         {response ? (
           <div className="App-response">
@@ -96,6 +123,7 @@ function App() {
               
           </div>
         ) : null}
+        
       </header>
     </div>
   );
