@@ -1,0 +1,17 @@
+@import './reset.css';
+@import './theme.css';
+
+body {
+  font-family: var(--body-font);
+  font-size: var(--body-size);
+  background-image: var(--primary-color);
+  min-height: 100vh;
+}
+
+input {
+  font-family: var(--body-font);
+}
+
+select {
+  font-family: var(--body-font);
+}

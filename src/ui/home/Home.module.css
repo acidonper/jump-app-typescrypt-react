@@ -1,0 +1,118 @@
+.jumps {
+  display: flex;
+  flex-direction: row;
+  font-size: var(--body-size-l);
+  color: var(--on-secondary-color);
+  justify-content: center;
+}
+
+.jumps-buttons {
+  color: #282c34;
+  display: flex;
+  flex-direction: column;
+}
+
+.jumps-buttons h1 {
+  color: var(--on-secondary-color);
+  padding-top: var(--l);
+  font-size: var(--body-size-l);
+}
+
+.jumps-buttons-button {
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color);
+  border: 1px solid var(--shadow-secondary-color);
+  width: var(--logo-l);
+  height: var(--logo-l);
+  margin-top: var(--m);
+  margin-right: var(--m);
+  border-radius: 25px;
+}
+
+.jumps-buttons-button-img {
+  width: var(--logo-m);
+  height: var(--logo-m);
+}
+
+.jumps-buttons-calls {
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color);
+  border: 1px solid var(--shadow-secondary-color);
+  font-size: var(--body-size-l);
+  margin-top: var(--m);
+  margin-right: var(--s);
+  padding: 4px 6px;
+  min-width: var(--xxl);
+}
+
+.jumps-box {
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color);
+  padding: var(--l);
+  margin-left: var(--xl);
+  display: flex;
+  min-width: 25vh;
+  flex-direction: column;
+  border-radius: 25px;
+}
+
+.jumps-box h1 {
+  background-color: var(--secondary-color);
+  color: var(--on-secondary-color);
+  padding-bottom: var(--m);
+  font-size: var(--body-size-xl);
+}
+
+.jumps-box-item {
+  padding-top: var(--m);
+  display: flex;
+  border: 1px solid var(--shadow-secondary-color);
+  border-radius: var(--m);
+  padding-left: var(--m);
+  padding-bottom: var(--s);
+}
+
+.jumps-box-item-img {
+  width: var(--logo-s);
+  height: var(--logo-s);
+  margin-left: var(--m);
+}
+
+.jumps-actions {
+  margin-left: var(--l);
+  display: flex;
+  align-items: center;
+}
+
+.jumps-actions p {
+  color: var(--secondary-color);
+}
+
+.jumps-actions-button {
+  background-color: Transparent;
+  background-repeat: no-repeat;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+  margin-left: var(--m);
+}
+
+.jumps-actions-button-img {
+  width: var(--logo-l);
+  height: var(--logo-l);
+}
+
+.logs {
+  display: flex;
+  flex-direction: row;
+  font-size: var(--body-size-l);
+  color: var(--on-secondary-color);
+  justify-content: center;
+  padding-top: var(--xl);
+}
+
+.logs-items {
+  display: flex;
+  flex-direction: column-reverse;
+}
