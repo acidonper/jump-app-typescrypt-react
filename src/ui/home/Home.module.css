@@ -12,6 +12,18 @@
   flex-direction: column;
 }
 
+.jumps-buttons-images {
+  color: #282c34;
+  display: flex;
+  flex-direction: row;
+  padding-top: var(--m);
+  padding-left: var(--l);
+}
+
+.jumps-buttons-images-item {
+  padding-right: var(--l);
+}
+
 .jumps-buttons h1 {
   color: var(--on-secondary-color);
   padding-top: var(--l);
@@ -19,14 +31,14 @@
 }
 
 .jumps-buttons-button {
-  background-color: var(--secondary-color);
+  background-image: var(--secondary-color);
   color: var(--on-secondary-color);
   border: 1px solid var(--shadow-secondary-color);
   width: var(--logo-l);
   height: var(--logo-l);
   margin-top: var(--m);
   margin-right: var(--m);
-  border-radius: 25px;
+  border-radius: 50%;
 }
 
 .jumps-buttons-button-img {
@@ -35,7 +47,7 @@
 }
 
 .jumps-buttons-calls {
-  background-color: var(--secondary-color);
+  background-image: var(--secondary-color);
   color: var(--on-secondary-color);
   border: 1px solid var(--shadow-secondary-color);
   font-size: var(--body-size-l);
@@ -46,7 +58,7 @@
 }
 
 .jumps-box {
-  background-color: var(--secondary-color);
+  background-image: var(--secondary-color);
   color: var(--on-secondary-color);
   padding: var(--l);
   margin-left: var(--xl);
@@ -57,7 +69,6 @@
 }
 
 .jumps-box h1 {
-  background-color: var(--secondary-color);
   color: var(--on-secondary-color);
   padding-bottom: var(--m);
   font-size: var(--body-size-xl);
@@ -95,6 +106,7 @@
   cursor: pointer;
   overflow: hidden;
   outline: none;
+  color: var(--secondary-color);
   margin-left: var(--m);
 }
 
@@ -109,7 +121,8 @@
   font-size: var(--body-size-l);
   color: var(--on-secondary-color);
   justify-content: center;
-  padding-top: var(--xl);
+  padding: var(--xxl) var(--xl) var(--xl) var(--l);
+  text-align: center;
 }
 
 .logs-items {

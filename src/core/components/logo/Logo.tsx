@@ -12,9 +12,9 @@ export const Logo: React.FunctionComponent<Props> = ({ size }) => {
   return (
     <>
       <img
-        src='./logo.png'
-        data-testid='Logo'
-        alt='Jump Logo'
+        src="./logo-color.png"
+        data-testid="Logo"
+        alt="Jump Logo"
         className={cx(size)}
       />
     </>

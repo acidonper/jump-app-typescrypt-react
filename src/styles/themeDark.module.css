@@ -19,12 +19,13 @@
   --body-font: Comfortaa;
   --title-font: Comfortaa;
 
-  --primary-color: linear-gradient(to bottom right, #72ebbc, #3c7497);
+  /* --primary-color: linear-gradient(to bottom right, #72ebbc, #3c7497); */
+  --primary-color: linear-gradient(to bottom right, #000000, #363738);
   --on-primary-color: white;
 
-  --secondary-color: white;
-  --on-secondary-color: #547386;
-  --shadow-secondary-color: #cfd6e2;
+  --secondary-color: linear-gradient(to bottom right, #202020, #3a3a3a);
+  --on-secondary-color: white;
+  --shadow-secondary-color: #5e6166;
 
   --logo-xxl: 150px;
   --logo-xl: 125px;

@@ -1,5 +1,4 @@
 @import './reset.css';
-@import './theme.css';
 
 body {
   font-family: var(--body-font);
@@ -14,4 +13,12 @@ input {
 
 select {
   font-family: var(--body-font);
+}
+
+* {
+  -ms-overflow-style: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }

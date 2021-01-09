@@ -10,14 +10,12 @@ interface Props {}
 export const Header: React.FunctionComponent<Props> = () => {
   return (
     <>
-      <header>
-        <div className={cx('logo')}>
-          <a href='/'>
-            <Logo size='xxl'></Logo>
-          </a>
-          <h1>Jump App v2.0</h1>
-        </div>
-      </header>
+      <div className={cx('logo')}>
+        <a href='/'>
+          <Logo size='xxl'></Logo>
+        </a>
+        <h1>Jump App v2.0</h1>
+      </div>
     </>
   );
 };
