@@ -12,23 +12,27 @@ const cx = bind(styles);
 interface Props {}
 
 export const Home: React.FunctionComponent<Props> = () => {
-  const appBack = process.env.REACT_APP_BACK + '';
+  const appBack = process.env.REACT_APP_BACK || '';
+  const appGolang = process.env.REACT_APP_GOLANG || 'http://golang:8442';
+  const appSpringboot =
+    process.env.REACT_APP_SPRINGBOOT || 'http://springboot:8443';
+  const appPython = process.env.REACT_APP_PYTHON || 'http://python:8444';
 
   const golang = {
     id: '1',
-    jump: 'http://golang:8442',
+    jump: appGolang,
     name: 'Golang',
     img: './golang.png',
   };
   const springboot = {
     id: '2',
-    jump: 'http://springboot:8443',
+    jump: appSpringboot,
     name: 'Springboot',
     img: './springboot.png',
   };
   const python = {
     id: '3',
-    jump: 'http://python:5000',
+    jump: appPython,
     name: 'Python',
     img: './python.png',
   };

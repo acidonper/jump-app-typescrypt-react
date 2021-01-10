@@ -7,13 +7,6 @@ export const sentJump = async (
   url: string,
   data: Jump
 ): Promise<ResponseBack> => {
-  // Define Axios Instance
-  const instance: AxiosInstance = axios.create({
-    httpsAgent: new https.Agent({
-      rejectUnauthorized: false,
-    }),
-  });
-
   // Define options with headers
   const options = {
     headers: {
@@ -25,7 +18,7 @@ export const sentJump = async (
   // Execute Post
   try {
     let response: any;
-    response = await instance.post(url, JSON.stringify(data), options);
+    response = await axios.post(url, JSON.stringify(data), options);
     return response.data;
   } catch (error) {
     console.log(error);
