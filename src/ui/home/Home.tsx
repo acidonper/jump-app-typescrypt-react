@@ -79,8 +79,9 @@ export const Home: React.FunctionComponent<Props> = () => {
       const timeLog = new Date();
       const time = timeLog.getTime();
       const date = new Date(time);
+      const prefix = 'Jump ' + index.toString() + ' -> ';
       const item: JumpLog = {
-        dateLog: date.toString(),
+        dateLog: prefix + date.toString(),
         message: JSON.stringify(jump),
       };
       setCallLogs({ ...item });
