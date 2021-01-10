@@ -1,31 +1,31 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
+import https from 'https';
 import { Jump } from '../domain/Jump';
 import { ResponseBack } from '../domain/ResponseBack';
 
 export const sentJump = async (
   url: string,
   data: Jump
-  // calls: number,
-  // callsInterval: number
 ): Promise<ResponseBack> => {
-  // const timeout = async (ms: number) => {
-  //   return new Promise((resolve) => setTimeout(resolve, ms * 1000));
-  // };
+  // Define Axios Instance
+  const instance: AxiosInstance = axios.create({
+    httpsAgent: new https.Agent({
+      rejectUnauthorized: false,
+    }),
+  });
 
+  // Define options with headers
   const options = {
     headers: {
       'Content-Type': 'application/json',
-      'React-modifier': 'true'
-    }
+      'React-modifier': 'true',
+    },
   };
 
+  // Execute Post
   try {
     let response: any;
-    // for (let index = 0; index < calls; index++) {
-    //   await timeout(callsInterval);
-    response = await axios.post(url, JSON.stringify(data), options);
-    // }
-    // Sent the last result
+    response = await instance.post(url, JSON.stringify(data), options);
     return response.data;
   } catch (error) {
     console.log(error);
