@@ -1,5 +1,4 @@
-import axios, { AxiosInstance } from 'axios';
-import https from 'https';
+import axios from 'axios';
 import { Jump } from '../domain/Jump';
 import { ResponseBack } from '../domain/ResponseBack';
 
