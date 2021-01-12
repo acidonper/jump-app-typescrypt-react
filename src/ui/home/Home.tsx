@@ -22,25 +22,25 @@ export const Home: React.FunctionComponent<Props> = () => {
     id: '1',
     jump: appGolang,
     name: 'Golang',
-    img: './golang.png',
+    img: './golang.png'
   };
   const springboot = {
     id: '2',
     jump: appSpringboot,
     name: 'Springboot',
-    img: './springboot.png',
+    img: './springboot.png'
   };
   const python = {
     id: '3',
     jump: appPython,
     name: 'Python',
-    img: './python.png',
+    img: './python.png'
   };
 
   const jumps = [golang, springboot, python];
   const jumpLogTest = {
     dateLog: '',
-    message: '',
+    message: ''
   };
 
   const [data, setData] = useState(jumps);
@@ -63,7 +63,7 @@ export const Home: React.FunctionComponent<Props> = () => {
       message: 'hello',
       jump_path: '/jump',
       last_path: '/jump',
-      jumps: data.map((i) => i.jump),
+      jumps: data.map((i) => i.jump)
     };
 
     const timeout = async (ms: number) => {
@@ -82,7 +82,7 @@ export const Home: React.FunctionComponent<Props> = () => {
       const prefix = 'Jump ' + index.toString() + ' -> ';
       const item: JumpLog = {
         dateLog: prefix + date.toString(),
-        message: JSON.stringify(jump),
+        message: JSON.stringify(jump)
       };
       setCallLogs({ ...item });
     }
@@ -133,8 +133,8 @@ export const Home: React.FunctionComponent<Props> = () => {
 
   return (
     <>
-      <div className={cx('jumps')}>
-        <div className={cx('jumps-buttons')}>
+      <div role='jump' className={cx('jumps')}>
+        <div role='jumpselections' className={cx('jumps-buttons')}>
           <div>
             <h1>Add Jump:</h1>
             <div className={cx('jumps-buttons-images')}>
@@ -167,11 +167,11 @@ export const Home: React.FunctionComponent<Props> = () => {
           <div>
             <h1>Calls Retries:</h1>
             <input
-              type="number"
-              id="calls"
-              name="calls"
+              type='number'
+              id='calls'
+              name='calls'
               required={true}
-              placeholder="80"
+              placeholder='80'
               onChange={(event) => setCalls(parseInt(event.target.value))}
               value={calls}
               className={cx('jumps-buttons-calls')}
@@ -180,11 +180,11 @@ export const Home: React.FunctionComponent<Props> = () => {
           <div>
             <h1>Calls Interval:</h1>
             <input
-              type="number"
-              id="callsInterval"
-              name="callsInterval"
+              type='number'
+              id='callsInterval'
+              name='callsInterval'
               required={true}
-              placeholder="80"
+              placeholder='80'
               onChange={(event) =>
                 setCallsInterval(parseInt(event.target.value))
               }
@@ -193,10 +193,10 @@ export const Home: React.FunctionComponent<Props> = () => {
             />
           </div>
         </div>
-        <div className={cx('jumps-box')}>
+        <div role='jumpbox' className={cx('jumps-box')}>
           <h1>Jumps</h1>
           <DragDropContext onDragEnd={handleOnDragEnd}>
-            <Droppable droppableId="jumps">
+            <Droppable droppableId='jumps'>
               {(provided) => (
                 <ul {...provided.droppableProps} ref={provided.innerRef}>
                   {data.map(({ id, name, jump }, index) => {
@@ -215,8 +215,8 @@ export const Home: React.FunctionComponent<Props> = () => {
                               </p>
                               <img
                                 onClick={() => delJump(index)}
-                                src="./bin.png"
-                                alt="bin"
+                                src='./bin.png'
+                                alt='bin'
                                 className={cx('jumps-box-item-img')}
                               />
                             </div>
@@ -231,18 +231,18 @@ export const Home: React.FunctionComponent<Props> = () => {
             </Droppable>
           </DragDropContext>
         </div>
-        <div className={cx('jumps-actions')}>
+        <div role='jumpaction' className={cx('jumps-actions')}>
           <button onClick={sendJumps} className={cx('jumps-actions-button')}>
             <img
-              src="./rocket.png"
-              alt="Jump!"
+              src='./rocket.png'
+              alt='Jump!'
               className={cx('jumps-actions-button-img')}
             />
             <p>- JUMP -</p>
           </button>
         </div>
       </div>
-      <div className={cx('logs')}>
+      <div role='jumplog' className={cx('logs')}>
         <div className={cx('logs-items')}>
           <p>
             {callLogs.dateLog} {callLogs.message}

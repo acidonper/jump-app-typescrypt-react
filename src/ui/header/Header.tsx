@@ -10,7 +10,7 @@ interface Props {}
 export const Header: React.FunctionComponent<Props> = () => {
   return (
     <>
-      <div className={cx('logo')}>
+      <div role='logo' className={cx('logo')}>
         <a href='/'>
           <Logo size='xxl'></Logo>
         </a>
