@@ -1,0 +1,35 @@
+.xs {
+    width: var(--logo-xs) !important;
+    height: var(--logo-xs) !important;
+    cursor: default;
+}
+
+.s {
+    width: var(--logo-s) !important;
+    height: var(--logo-s) !important;
+    cursor: default;
+}
+
+.m {
+    width: var(--logo-m) !important;
+    height: var(--logo-m) !important;
+    cursor: default;
+}
+
+.l {
+    width: var(--logo-l) !important;
+    height: var(--logo-l) !important;
+    cursor: default;
+}
+
+.xl {
+    width: var(--logo-xl) !important;
+    height: var(--logo-xl) !important;
+    cursor: default;
+}
+
+.xxl {
+    width: var(--logo-xxl) !important;
+    height: var(--logo-xxl) !important;
+    cursor: default;
+}

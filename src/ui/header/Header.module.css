@@ -1,0 +1,13 @@
+.logo {
+  display: flex;
+  color: var(--on-primary-color);
+  border: none;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: var(--xxl);
+}
+
+.logo h1 {
+  font-weight: bold;
+  padding-top: var(--l);
+}

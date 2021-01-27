@@ -1,0 +1,8 @@
+.theme-button h1 {
+  color: var(--on-secondary-color);
+  margin: var(--l);
+  font-size: var(--body-size-l);
+  cursor: pointer;
+  font-weight: bold;
+  text-decoration: underline;
+}

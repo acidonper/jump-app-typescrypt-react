@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css?family=Comfortaa');
+
+:root {
+  --xs: 0.25rem;
+  --s: 0.5rem;
+  --m: 1rem;
+  --l: 2rem;
+  --xl: 4rem;
+  --xxl: 8rem;
+
+  --body-size-s: 10px;
+  --body-size-m: 14px;
+  --body-size-l: 16px;
+  --body-size-xl: 20px;
+  --body-size-xxl: 24px;
+
+  --body-size: 22px;
+
+  --body-font: Comfortaa;
+  --title-font: Comfortaa;
+
+  /* --primary-color: linear-gradient(to bottom right, #72ebbc, #3c7497); */
+  --primary-color: linear-gradient(to bottom right, #000000, #363738);
+  --on-primary-color: white;
+
+  --secondary-color: linear-gradient(to bottom right, #202020, #3a3a3a);
+  --on-secondary-color: white;
+  --shadow-secondary-color: #5e6166;
+
+  --logo-xxl: 150px;
+  --logo-xl: 125px;
+  --logo-l: 60px;
+  --logo-m: 40px;
+  --logo-s: 25px;
+  --logo-xs: 10px;
+}
