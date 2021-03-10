@@ -6,11 +6,13 @@ export const sentJump = async (
   url: string,
   data: Jump
 ): Promise<ResponseBack> => {
+
+  const unix_date = (new Date()).getTime()
   // Define options with headers
   const options = {
     headers: {
       'Content-Type': 'application/json',
-      'React-modifier': 'true',
+      'React-modifier': unix_date,
     },
   };
 
