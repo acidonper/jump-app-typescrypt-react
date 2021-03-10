@@ -7,7 +7,7 @@ export const sentJump = async (
   data: Jump
 ): Promise<ResponseBack> => {
 
-  const unix_date = (new Date()).getTime()
+  const unix_date = new Date().getTime()
   // Define options with headers
   const options = {
     headers: {
