@@ -3,6 +3,7 @@ import { bind } from '../../utils/bind';
 import styles from './Home.module.css';
 import { sentJump } from '../../infrastructure/postJump';
 import { ResponseBack } from '../../domain/ResponseBack';
+import { AppService } from '../../domain/AppService';
 import { JumpLog } from '../../domain/JumpLog';
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd';
 import { Jump } from '../../domain/Jump';
@@ -17,24 +18,31 @@ export const Home: React.FunctionComponent<Props> = () => {
   const appSpringboot =
     process.env.REACT_APP_SPRINGBOOT || 'http://springboot:8443';
   const appPython = process.env.REACT_APP_PYTHON || 'http://python:8444';
+  const appQuarkus = process.env.REACT_APP_QUARKUS || 'http://quarkus:8080';
 
-  const golang = {
+  const golang: AppService = {
     id: '1',
     jump: appGolang,
     name: 'Golang',
     img: './golang.png'
   };
-  const springboot = {
+  const springboot: AppService = {
     id: '2',
     jump: appSpringboot,
     name: 'Springboot',
     img: './springboot.png'
   };
-  const python = {
+  const python: AppService = {
     id: '3',
     jump: appPython,
     name: 'Python',
     img: './python.png'
+  };
+  const quarkus: AppService = {
+    id: '4',
+    jump: appQuarkus,
+    name: 'Quarkus',
+    img: './quarkus.png'
   };
 
   const jumps = [golang, springboot, python];
@@ -87,33 +95,8 @@ export const Home: React.FunctionComponent<Props> = () => {
       setCallLogs({ ...item });
     }
   };
-
-  const addGoJump = () => {
-    const item = { ...golang };
-    if (data.length > 0) {
-      const newid = parseInt(data[data.length - 1].id) + 1;
-      item.id = newid.toString();
-      console.log(item);
-      setData([...data, item]);
-    } else {
-      item.id = '1';
-      setData([item]);
-    }
-  };
-  const addSpJump = () => {
-    const item = { ...springboot };
-    if (data.length > 0) {
-      const newid = parseInt(data[data.length - 1].id) + 1;
-      item.id = newid.toString();
-      console.log(item);
-      setData([...data, item]);
-    } else {
-      item.id = '1';
-      setData([item]);
-    }
-  };
-  const addPyJump = () => {
-    const item = { ...python };
+  const addJump = (obj: AppService) => {
+    const item = { ...obj };
     if (data.length > 0) {
       const newid = parseInt(data[data.length - 1].id) + 1;
       item.id = newid.toString();
@@ -140,7 +123,7 @@ export const Home: React.FunctionComponent<Props> = () => {
             <div className={cx('jumps-buttons-images')}>
               <div className={cx('jumps-buttons-images-item')}>
                 <img
-                  onClick={addSpJump}
+                  onClick={() => addJump(springboot)}
                   src={springboot.img}
                   alt={springboot.name}
                   className={cx('jumps-buttons-button-img')}
@@ -148,7 +131,7 @@ export const Home: React.FunctionComponent<Props> = () => {
               </div>
               <div className={cx('jumps-buttons-images-item')}>
                 <img
-                  onClick={addGoJump}
+                  onClick={() => addJump(golang)}
                   src={golang.img}
                   alt={golang.name}
                   className={cx('jumps-buttons-button-img')}
@@ -156,9 +139,17 @@ export const Home: React.FunctionComponent<Props> = () => {
               </div>
               <div className={cx('jumps-buttons-images-item')}>
                 <img
-                  onClick={addPyJump}
+                  onClick={() => addJump(python)}
                   src={python.img}
                   alt={python.name}
+                  className={cx('jumps-buttons-button-img')}
+                />
+              </div>
+              <div className={cx('jumps-buttons-images-item')}>
+                <img
+                  onClick={() => addJump(quarkus)}
+                  src={quarkus.img}
+                  alt={quarkus.name}
                   className={cx('jumps-buttons-button-img')}
                 />
               </div>
