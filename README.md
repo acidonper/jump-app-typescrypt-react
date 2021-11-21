@@ -1,8 +1,13 @@
-# Getting Started with Create React App
+# Jump App Frontend based on React
+
+This repository includes a microservice based on React and TypeScript that is a component develop for Jump App application. The idea of this microservice is implement a Frontend which will be able to send HTTP and gRPC request to a respective backend.
+
+The idea of this connection to the backend is to send a JSON or Protobuf object in order to be able to make a set of "jumps" (connection between services) that have been implemented as microservices in different languages (Golang, Python, Java or Quarkus).
+
+Please review the following section for more information about this microservice.
+## Available Scripts
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
 
 In the project directory, you can run:
 
@@ -38,6 +43,20 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## gRPC Support
+
+In order to be able to test some features integrated in Istio (based on Envoy), gRPC support has been implemented. With this new feature, it is possible to sent gRPC request in the same way as HTTP requests.
+
+It is important to bear in mind that a gRPC proxy (E.g. Envoy) is required to handle the gRPC requests and redirect them to the a specific backend. For this reason, the following command will be useful in local testing to make available this envoy service locally:
+
+```$bash
+envoy -c local/envoy.yaml
+```
+
+NOTE: It is required to install envoy previously. Visit [link](https://www.envoyproxy.io/docs/envoy/latest/start/install) for more information.
+
+Please visit [gRPC Web](https://github.com/grpc/grpc-web) for more information about this integration.
 
 ## Learn More
 
