@@ -13,6 +13,6 @@ describe('Test React Multi Component Header', () => {
 
     expect(logoDiv).toBeTruthy();
     expect(imgName).toBe('Jump Logo');
-    expect(h1[0]).toHaveTextContent('Jump App v2.');
+    expect(h1[0]).toHaveTextContent('Jump App v.2.1 DEV - user1');
   });
 });
