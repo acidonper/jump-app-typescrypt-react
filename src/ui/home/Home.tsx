@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { bind } from '../../utils/bind';
 import styles from './Home.module.css';
 import { sentJump } from '../../infrastructure/postJump';
+import { sentJumpGrpc } from '../../infrastructure/postJumpGrpc';
 import { ResponseBack } from '../../domain/ResponseBack';
 import { AppService } from '../../domain/AppService';
 import { JumpLog } from '../../domain/JumpLog';
@@ -52,6 +53,7 @@ export const Home: React.FunctionComponent<Props> = () => {
   };
 
   const [data, setData] = useState(jumps);
+  const [grpc, setGrpc] = useState(false);
   const [calls, setCalls] = useState(1);
   const [callsInterval, setCallsInterval] = useState(1);
   const [callLogs, setCallLogs] = useState({ ...jumpLogTest });
@@ -67,11 +69,13 @@ export const Home: React.FunctionComponent<Props> = () => {
   const sendJumps = async () => {
     setCallLogs({ ...jumpLogTest });
 
+    const jumpsRequest = data.map((i) => i.jump)
+
     const finalJump: Jump = {
       message: 'hello',
       jump_path: '/jump',
       last_path: '/jump',
-      jumps: data.map((i) => i.jump)
+      jumps: jumpsRequest,
     };
 
     const timeout = async (ms: number) => {
@@ -83,7 +87,14 @@ export const Home: React.FunctionComponent<Props> = () => {
     for (let index = 0; index < calls; index++) {
       await timeout(callsInterval);
       setCallLogs({ ...jumpLogTest });
-      const jump: ResponseBack = await sentJump(appBack, finalJump);
+
+      var jump: ResponseBack = {} as any;
+      
+      if (!grpc) {
+        jump = await sentJump(appBack, finalJump);
+      } else {
+        jump = await sentJumpGrpc(appBack, jumpsRequest)
+      }
       const timeLog = new Date();
       const time = timeLog.getTime();
       const date = new Date(time);
@@ -185,7 +196,20 @@ export const Home: React.FunctionComponent<Props> = () => {
           </div>
         </div>
         <div role='jumpbox' className={cx('jumps-box')}>
-          <h1>Jumps</h1>
+          <h1>Jumps</h1> 
+          <div className={cx('jumps-box-grpc-section')}>          
+            <p>
+              <input 
+                  type="checkbox" 
+                  id="grpc" 
+                  name="grpc"
+                  defaultChecked={grpc} 
+                  onChange={(event) => 
+                    setGrpc(event.target.checked)
+                  }/>  
+            gRPC Enabled
+            </p>
+          </div>
           <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId='jumps'>
               {(provided) => (

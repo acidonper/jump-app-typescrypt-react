@@ -23,6 +23,6 @@ export const sentJump = async (
     return response.data;
   } catch (error) {
     console.log(error);
-    return error;
+    return {code: 500, message: "/jump - Farewell from Backend -" + url};
   }
 };

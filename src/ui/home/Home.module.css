@@ -70,7 +70,17 @@
 .jumps-box h1 {
   color: var(--on-secondary-color);
   padding-bottom: var(--m);
-  font-size: var(--body-size-xl);
+  font-size: var(--body-size-xxl);
+  align-self: center;
+}
+
+.jumps-box-grpc-section {
+  padding-bottom: var(--l);
+  display: flex;
+  align-items: center;
+  min-width: 25vh;
+  flex-direction: column;
+  font-size: var(--body-size-m);
 }
 
 .jumps-box-item {
