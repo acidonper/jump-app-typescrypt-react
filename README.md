@@ -68,4 +68,4 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 Asier Cidon
 
-asier.cidon@gmail.com
+@RedHat
